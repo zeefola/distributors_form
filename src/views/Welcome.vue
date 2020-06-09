@@ -72,7 +72,13 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label>Marital Status *</label>
-                                        <span class="text-input"><input  v-model="formData.marital_status" type="text" value="" placeholder="" required="required" ></span>
+                                        <span class="text-input"><select v-model="formData.marital_status"  name="religion">
+                                             <option value="single">Single</option>
+                                            <option value="married">Married</option>
+                                            <option value="divorced">Divorced</option>
+                                             <option value="widow">Widow</option>
+                                        </select>
+                                        </span>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Religion *</label>
@@ -195,7 +201,7 @@ export default {
                     x.showNotif({type: 'success', message: response.data.message });
 
                     /** Clears all input field */
-                    //x.clearInputField(x.formData);
+                    x.clearInputField(x.formData);
                 }
 
 
