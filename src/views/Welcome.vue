@@ -40,7 +40,7 @@
                             <div class="section-title with-desc clearfix">
                                 <div class="title-header">
                                     <h2 class="title">Distributors Form</h2>
-                                    <!-- {{formData}} -->
+                                    {{formData}}
                                 </div>
                             </div>
                             <!-- section-title end -->
@@ -64,7 +64,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label>Date of Birth *</label>
-                                        <span class="text-input"><input  v-model="formData.date_of_birth" type="text" value="" placeholder="" required="required" ></span>
+                                        
+                                        <datepicker placeholder="Select Date" v-model="formData.date_of_birth" ></datepicker>
+                                        <!-- <span class="text-input"><input  v-model="formData.date_of_birth" type="text" value="" placeholder="" required="required" ></span> -->
                                     </div>
                                     <div class="col-md-6">
                                         <label>Occupation *</label>
@@ -139,6 +141,7 @@ import Breadcrumb from "@/components/Breadcrumb.vue"
 import { seo } from "../Repositories/seo"
 import { pick } from "../Repositories/pick"
 import { vuesax } from "../Repositories/vuesax"
+import Datepicker from 'vuejs-datepicker';
 // import { fb, db } from "../firebase"
 
 export default {
@@ -146,11 +149,13 @@ export default {
   mixins: [seo,pick,vuesax],
   components: {
     "app-master" : Master,
-    "app-breadcrumb" : Breadcrumb
+    "app-breadcrumb" : Breadcrumb,
+     Datepicker
 
   },
   data(){
       return{
+          date: '',
           formData: {
             surname: ' ',
             other_names: ' ',
@@ -170,9 +175,6 @@ export default {
       }
   },
   methods: {
-      submit(){
-      },
-
       api_params(value) {
         if(value == "SUBMIT_DISTRIBUTORS_FORM"){
             return { ...this.formData }
