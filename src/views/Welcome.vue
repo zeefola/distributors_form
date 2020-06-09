@@ -40,7 +40,7 @@
                             <div class="section-title with-desc clearfix">
                                 <div class="title-header">
                                     <h2 class="title">Distributors Form</h2>
-                                    {{formData}}
+                                    <!-- {{formData}} -->
                                 </div>
                             </div>
                             <!-- section-title end -->
@@ -78,11 +78,11 @@
                                         <label>Religion *</label>
                                         <span class="text-input"><input  v-model="formData.religion" type="text" value="" placeholder="" required="required" ></span>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <label>Gender *</label>
-                                        <span class="text-input"><input  v-model="formData.sex" type="text" value="" placeholder="" required="required" ></span>
+                                        <span class="text-input"><input  v-model="formData.gender" type="text" value="" placeholder="" required="required" ></span>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-9">
                                         <label>Shop Address *</label>
                                         <span class="text-input"><input  v-model="formData.shop_address" type="text" value="" placeholder="" required="required" ></span>
                                     </div>
@@ -99,7 +99,7 @@
                                         <span class="text-input"><textarea v-model="message" cols="40" rows="6" placeholder="" required="required"></textarea></span>
                                     </div> -->
                                 </div>
-                                <input type="submit" @click.prevent="submit()" value="REGISTER" class="submit ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor">
+                                <input type="submit" @click.prevent="submit('SUBMIT_DISTRIBUTORS_FORM')" value="REGISTER" class="submit ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor">
                             </form>
                         </div>
                     </div>
@@ -143,7 +143,7 @@ export default {
             business_address: '',
             shop_address: '',
             date_of_birth: '',
-            sex: '',
+            gender: '',
             occupation: '',
             marital_status: '',
             religion: ''
@@ -157,8 +157,8 @@ export default {
       },
 
       api_params(value) {
-        if(value == "SUBMIT_CONTACT_US_FORM"){
-            return { ...this.formData, key: this.API_KEY }
+        if(value == "SUBMIT_DISTRIBUTORS_FORM"){
+            return { ...this.formData }
         }
         },
 
@@ -168,14 +168,12 @@ export default {
         let x = this;
 
 
-
-
-        if(value == "SUBMIT_CONTACT_US_FORM"){
+        if(value == "SUBMIT_DISTRIBUTORS_FORM"){
 
             /** Start loader gif */
           this.showLoading();
 
-          response = await this.$store.dispatch("contact_us_confirm", this.api_params(value));
+          response = await this.$store.dispatch("distributors_registration", this.api_params(value));
 
             /** If response contain status */
             if( response && 'status' in response){
@@ -186,7 +184,7 @@ export default {
                     x.showNotif({type: 'success', message: response.data.message });
 
                     /** Clears all input field */
-                    x.clearInputField(x.formData);
+                    //x.clearInputField(x.formData);
                 }
 
 
@@ -213,7 +211,7 @@ export default {
      async submit(value){
         let x = this;
       
-        if(value == "SUBMIT_CONTACT_US_FORM"){
+        if(value == "SUBMIT_DISTRIBUTORS_FORM"){
            this.api_calls(value);
             
         }
@@ -222,8 +220,9 @@ export default {
   },
 
   created(){
-      this.seoMetaData('Distributors Form' , '');
-      this.showNotif({type: 'warning', message: "hewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"});
+      
+    //   this.seoMetaData('Distributors Form' , '');
+    //   this.showNotif({type: 'warning', message: "hewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"});
   }
 
 };
