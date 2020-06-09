@@ -40,7 +40,7 @@
                             <div class="section-title with-desc clearfix">
                                 <div class="title-header">
                                     <h2 class="title">Distributors Form</h2>
-                                    {{formData}}
+                                    
                                 </div>
                             </div>
                             <!-- section-title end -->
