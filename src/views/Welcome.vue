@@ -5,7 +5,7 @@
          <app-breadcrumb>
              <div class="title-box ttm-textcolor-white">
                 <div class="page-title-heading">
-                    <h1 class="title">FoodPark</h1>
+                    <h1 class="title">AgroPark</h1>
                 </div><!-- /.page-title-captions -->
                 <div class="breadcrumb-wrapper">
                     <div class="container">
@@ -76,11 +76,22 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label>Religion *</label>
-                                        <span class="text-input"><input  v-model="formData.religion" type="text" value="" placeholder="" required="required" ></span>
+                                        <span class="text-input"><select v-model="formData.religion"  name="religion">
+                                        <!-- <span class="text-input"><input  v-model="formData.gender" type="text" value="" placeholder="" required="required" ></span> -->
+                                            <option value="christianity">Christianity</option>
+                                            <option value="islam">Islam</option>
+                                            <option value="others">Others</option>
+                                        </select>
+                                        </span>
                                     </div>
                                     <div class="col-md-3">
                                         <label>Gender *</label>
-                                        <span class="text-input"><input  v-model="formData.gender" type="text" value="" placeholder="" required="required" ></span>
+                                        <span class="text-input"><select v-model="formData.gender"  name="gender">
+                                        <!-- <span class="text-input"><input  v-model="formData.gender" type="text" value="" placeholder="" required="required" ></span> -->
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                        </span>
                                     </div>
                                     <div class="col-md-9">
                                         <label>Shop Address *</label>
@@ -237,5 +248,22 @@ export default {
 
 .pt-60 {
     padding-top: 0px !important;
+}
+
+select{
+    border: 1px solid transparent;
+    background-color: #f9fafa;
+    color: #9dabaf;
+    width: 100%;
+    padding: 10px 15px;
+    padding-left: 33px;
+     min-height: 44.8px;
+    letter-spacing: 1px;
+}
+
+input, select{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 </style>
