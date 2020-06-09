@@ -40,6 +40,10 @@
                             <div class="section-title with-desc clearfix">
                                 <div class="title-header">
                                     <h2 class="title">Distributors Form</h2>
+<<<<<<< HEAD
+=======
+                                    
+>>>>>>> cleaning up
                                 </div>
                             </div>
                             <!-- section-title end -->
