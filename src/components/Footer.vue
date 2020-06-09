@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
                                 <div class="featured-title">
-                                    <h5>info@foodpark.ng</h5>
+                                    <h5>info@agropark.ng</h5>
                                     <h4>Need support? Drop us an email</h4>
                                 </div>
                             </div><!-- featured-icon-box end-->
@@ -70,7 +70,7 @@
             <div class="container">
                 <div class="row copyright">
                     <div class="col-md-12">
-                        <span>Copyright © 2020 <router-link to="/" tag="a"> FoodPark </router-link> </span>
+                        <span>Copyright © 2020 <router-link to="/" tag="a"> AgroPark Devt Company </router-link> </span>
                     </div>
                     <div class="col-md-12">
                         <!-- <ul id="menu-footer-menu" class="footer-nav-menu">
