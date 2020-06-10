@@ -5,7 +5,7 @@
          <app-breadcrumb>
              <div class="title-box ttm-textcolor-white">
                 <div class="page-title-heading">
-                    <h1 class="title">AgroPark</h1>
+                    <h1 class="title">Sano Foods</h1>
                 </div><!-- /.page-title-captions -->
                 <div class="breadcrumb-wrapper">
                     <div class="container">
@@ -40,7 +40,6 @@
                             <div class="section-title with-desc clearfix">
                                 <div class="title-header">
                                     <h2 class="title">Distributors Form</h2>
-                                    {{formData}}
                                 </div>
                             </div>
                             <!-- section-title end -->
@@ -72,7 +71,7 @@
                                         <label>Occupation *</label>
                                         <span class="text-input"><input  v-model="formData.occupation" type="text" value="" placeholder="" required="required" ></span>
                                     </div>
-                                    <div class="col-md-6">
+                                    <!-- <div class="col-md-6">
                                         <label>Marital Status *</label>
                                         <span class="text-input"><select v-model="formData.marital_status"  name="religion">
                                              <option value="single">Single</option>
@@ -81,17 +80,17 @@
                                              <option value="widow">Widow</option>
                                         </select>
                                         </span>
-                                    </div>
-                                    <div class="col-md-6">
+                                    </div> -->
+                                    <!-- <div class="col-md-6">
                                         <label>Religion *</label>
-                                        <span class="text-input"><select v-model="formData.religion"  name="religion">
+                                        <span class="text-input"><select v-model="formData.religion"  name="religion"> -->
                                         <!-- <span class="text-input"><input  v-model="formData.gender" type="text" value="" placeholder="" required="required" ></span> -->
-                                            <option value="christianity">Christianity</option>
+                                            <!-- <option value="christianity">Christianity</option>
                                             <option value="islam">Islam</option>
                                             <option value="others">Others</option>
                                         </select>
                                         </span>
-                                    </div>
+                                    </div> -->
                                     <div class="col-md-3">
                                         <label>Gender *</label>
                                         <span class="text-input"><select v-model="formData.gender"  name="gender">
@@ -166,9 +165,7 @@ export default {
             shop_address: '',
             date_of_birth: '',
             gender: '',
-            occupation: '',
-            marital_status: '',
-            religion: ''
+            occupation: ''
 
           },          
         
