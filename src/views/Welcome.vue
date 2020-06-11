@@ -101,17 +101,18 @@
                                         </span>
                                     </div>
                                     <div class="col-md-9">
+                                        <label>Business Address *</label>
+                                        <span class="text-input"><input  v-model="formData.business_address" type="text" value="" placeholder="" ></span>
+                                    </div>
+                                    <!-- <div class="col-md-9">
                                         <label>Shop Address *</label>
                                         <span class="text-input"><input  v-model="formData.shop_address" type="text" value="" placeholder="" required="required" ></span>
-                                    </div>
+                                    </div> -->
                                     <div class="col-md-12">
                                         <label>Home Address*</label>
                                         <span class="text-input"><input v-model="formData.home_address" type="text" value="" placeholder="" required="required"></span>
                                     </div>
-                                    <div class="col-md-12">
-                                        <label>Business Address *</label>
-                                        <span class="text-input"><input  v-model="formData.business_address" type="text" value="" placeholder="" ></span>
-                                    </div>
+                                    
                                     <!-- <div class="col-md-12">
                                         <label>Your Message *</label>
                                         <span class="text-input"><textarea v-model="message" cols="40" rows="6" placeholder="" required="required"></textarea></span>
@@ -162,7 +163,6 @@ export default {
             telephone: ' ',
             home_address: '',
             business_address: '',
-            shop_address: '',
             date_of_birth: '',
             gender: '',
             occupation: ''
