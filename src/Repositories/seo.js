@@ -7,7 +7,7 @@ export const seo ={
     },
 
     metaInfo: {
-        title: 'AgroPark ',
+        title: 'Sano Foods ',
         meta: [{
           vmid: 'description',
           name: 'description',

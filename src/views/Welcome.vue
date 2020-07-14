@@ -40,11 +40,17 @@
                             <div class="section-title with-desc clearfix">
                                 <div class="title-header">
                                     <h2 class="title">Distributors Form</h2>
+                                    
                                 </div>
                             </div>
                             <!-- section-title end -->
                             <form id="ttm-contactform" class="ttm-contactform wrap-form style2 res-991-mt_15 clearfix" method="post" action="#">
                                 <div class="row">
+                                    <div class="col-md-12" style="margin-bottom: 2rem">
+                                        <label>Passport *</label>
+                                        <input type="file" @change="uploadHandler($event)" required="required" >
+                                    </div>
+
                                     <div class="col-md-6">
                                         <label>Surname *</label>
                                         <span class="text-input"><input  v-model="formData.surname" type="text" value="" placeholder="" required="required" ></span>
@@ -57,44 +63,25 @@
                                         <label>Your email *</label>
                                         <span class="text-input"><input v-model="formData.email" type="email" value="" placeholder="" required="required"></span>
                                     </div>
+                                   
                                     <div class="col-md-6">
                                         <label>Your Phone *</label>
                                         <span class="text-input"><input v-model="formData.telephone" type="text" value="" placeholder="" required="required"></span>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Date of Birth *</label>
-                                        
                                         <datepicker placeholder="Select Date" v-model="formData.date_of_birth" ></datepicker>
-                                        <!-- <span class="text-input"><input  v-model="formData.date_of_birth" type="text" value="" placeholder="" required="required" ></span> -->
                                     </div>
                                     <div class="col-md-6">
                                         <label>Occupation *</label>
                                         <span class="text-input"><input  v-model="formData.occupation" type="text" value="" placeholder="" required="required" ></span>
                                     </div>
-                                    <!-- <div class="col-md-6">
-                                        <label>Marital Status *</label>
-                                        <span class="text-input"><select v-model="formData.marital_status"  name="religion">
-                                             <option value="single">Single</option>
-                                            <option value="married">Married</option>
-                                            <option value="divorced">Divorced</option>
-                                             <option value="widow">Widow</option>
-                                        </select>
-                                        </span>
-                                    </div> -->
-                                    <!-- <div class="col-md-6">
-                                        <label>Religion *</label>
-                                        <span class="text-input"><select v-model="formData.religion"  name="religion"> -->
-                                        <!-- <span class="text-input"><input  v-model="formData.gender" type="text" value="" placeholder="" required="required" ></span> -->
-                                            <!-- <option value="christianity">Christianity</option>
-                                            <option value="islam">Islam</option>
-                                            <option value="others">Others</option>
-                                        </select>
-                                        </span>
-                                    </div> -->
+
+                                     
+
                                     <div class="col-md-3">
                                         <label>Gender *</label>
                                         <span class="text-input"><select v-model="formData.gender"  name="gender">
-                                        <!-- <span class="text-input"><input  v-model="formData.gender" type="text" value="" placeholder="" required="required" ></span> -->
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
                                         </select>
@@ -104,19 +91,12 @@
                                         <label>Business Address *</label>
                                         <span class="text-input"><input  v-model="formData.business_address" type="text" value="" placeholder="" ></span>
                                     </div>
-                                    <!-- <div class="col-md-9">
-                                        <label>Shop Address *</label>
-                                        <span class="text-input"><input  v-model="formData.shop_address" type="text" value="" placeholder="" required="required" ></span>
-                                    </div> -->
+                                
                                     <div class="col-md-12">
                                         <label>Home Address*</label>
                                         <span class="text-input"><input v-model="formData.home_address" type="text" value="" placeholder="" required="required"></span>
                                     </div>
-                                    
-                                    <!-- <div class="col-md-12">
-                                        <label>Your Message *</label>
-                                        <span class="text-input"><textarea v-model="message" cols="40" rows="6" placeholder="" required="required"></textarea></span>
-                                    </div> -->
+                                   
                                 </div>
                                 <input type="submit" @click.prevent="submit('SUBMIT_DISTRIBUTORS_FORM')" value="REGISTER" class="submit ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor">
                             </form>
@@ -166,25 +146,46 @@ export default {
             date_of_birth: '',
             gender: '',
             occupation: ''
-
-          },          
+          },   
+          file: '',       
         
       }
   },
   methods: {
+      uploadHandler(e){
+         this.file = e.target.files[0];
+        // console.log(this.file);
+      },
       api_params(value) {
         if(value == "SUBMIT_DISTRIBUTORS_FORM"){
-            return { ...this.formData }
+            let data = new FormData();
+            data.append('file', this.file);
+            data.append('surname',this.formData.surname);
+            data.append('other_names', this.formData.other_names);
+            data.append('email', this.formData.email);
+            data.append('telephone', this.formData.telephone);
+            data.append('home_address', this.formData.home_address);
+            data.append('business_address', this.formData.business_address);
+            data.append('date_of_birth', this.formData.date_of_birth);
+            data.append('gender', this.formData.gender);
+            data.append('occupation', this.formData.occupation);
+            return data;
+            //return { ...this.formData, file: this.file }
         }
-        },
+      },
 
         async api_calls(value){
 
         let response;
         let x = this;
 
+        
+
 
         if(value == "SUBMIT_DISTRIBUTORS_FORM"){
+
+
+            
 
             /** Start loader gif */
           this.showLoading();
@@ -237,7 +238,7 @@ export default {
 
   created(){
       
-    //   this.seoMetaData('Distributors Form' , '');
+    this.seoMetaData('Distributors Form' , '');
     //   this.showNotif({type: 'warning', message: "hewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"});
   }
 
